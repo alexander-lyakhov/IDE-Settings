@@ -1,0 +1,28 @@
+[
+    {
+        "class": "sidebar_label",
+        "color": [224, 224, 224],
+        "font.bold": false,
+        "font.size": 16
+    },
+    {
+        "class": "tabset_control",
+        "mouse_wheel_switch": true,
+        "tab_height": 48,
+    },
+    {
+        "class": "tab_label",
+        "font.size": 16
+    },
+    {
+        "class": "sidebar_container",
+        "layer0.tint": [40, 40, 40],
+        "layer0.opacity": 1.0,
+        "layer0.draw_center": false,
+    },
+    {
+        "class": "sidebar_tree",
+        "row_padding": [8, 4],
+        "indent": 12,
+    },
+]
