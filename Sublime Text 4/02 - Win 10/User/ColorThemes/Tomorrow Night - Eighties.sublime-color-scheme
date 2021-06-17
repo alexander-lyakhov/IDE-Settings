@@ -1,0 +1,19 @@
+// Documentation at https://www.sublimetext.com/docs/color_schemes.html'
+{
+	"variables":
+	{
+		"selection":"#404848"
+	},
+	"globals":
+	{
+		"caret": "var(grey5)",
+		"invisibles": "#808080",
+		"line_highlight": "var(grey3)",
+		"selection": "var(selection)",
+		"selection_border": "#808080"
+	},
+	"rules":
+	[
+
+	]
+}

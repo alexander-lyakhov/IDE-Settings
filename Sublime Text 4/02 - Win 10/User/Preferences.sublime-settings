@@ -1,0 +1,22 @@
+{
+	"font_size": 14,
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"theme": "predawn-DEV.sublime-theme",
+	"color_scheme": "Packages/User/ColorThemes/Monokai (AL).tmTheme",
+	"open_files_in_new_window": false,
+	"remember_full_screen": true,
+	"show_full_path": true,
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": "false",
+	"dark_theme": "Default Dark.sublime-theme",
+	"light_theme": "Adaptive.sublime-theme",
+	"draw_white_space": ["mixed", "trailing"],
+	"highlight_line": true,
+	"match_brackets_angle": true,
+	"default_line_ending": "unix",
+	"show_encoding": true,
+	"show_line_endings": true,
+}

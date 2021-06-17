@@ -1,0 +1,19 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Emmet",
+		"Git",
+		"Package Control",
+		"Predawn",
+		"SCSS",
+		"SideBarEnhancements",
+		"Theme - Afterglow",
+		"Tomorrow Color Schemes",
+		"TypeScript",
+		"Vue Syntax Highlight",
+	],
+}

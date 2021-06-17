@@ -1,0 +1,1 @@
+copy monokai-color-theme.json "D:\Program Files\VS Code\resources\app\extensions\theme-monokai\themes\" /y
