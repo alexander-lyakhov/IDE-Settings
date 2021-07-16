@@ -63,7 +63,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#E6DB74</string>
+                <string>#cc9966</string>
             </dict>
         </dict>
         <dict>
@@ -77,7 +77,6 @@
                 <string>#FAC863</string>
             </dict>
         </dict>
-
         <dict>
             <key>name</key>
             <string>Built-in constant</string>
@@ -119,7 +118,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#90c0e0</string>
+                <string>#FD971F</string>
             </dict>
         </dict>
         <dict>
@@ -221,7 +220,7 @@
                 <key>fontStyle</key>
                 <string>italic</string>
                 <key>foreground</key>
-                <string>#FD971F</string>
+                <string>#FAC863</string>
             </dict>
         </dict>
         <dict>
