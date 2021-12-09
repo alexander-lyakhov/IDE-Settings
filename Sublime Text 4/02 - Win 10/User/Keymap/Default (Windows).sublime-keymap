@@ -2,6 +2,7 @@
 	{ "keys": ["f2"], "command": "save" },
 	{ "keys": ["f3"], "command": "prompt_open_file" },
 	{ "keys": ["shift+f3"], "command": "prompt_open_folder" },
+	{ "keys": ["shift+f9"], "command": "goto_definition" },
 	{ "keys": ["f7"], "command": "show_panel", "args": {"panel": "find"} },
 	{ "keys": ["shift+f7"], "command": "find_next" },
 	{ "keys": ["ctrl+f7"], "command": "show_panel", "args": {"panel": "replace", "reverse": false} },
