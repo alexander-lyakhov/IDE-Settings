@@ -5,13 +5,13 @@
 	],
 	"installed_packages":
 	[
+		"AdvancedNewFile",
 		"Emmet",
 		"Git",
 		"Package Control",
 		"Predawn",
 		"Pretty JSON",
 		"SCSS",
-		"SideBarEnhancements",
 		"Theme - Afterglow",
 		"Theme - Dark Material",
 		"Tomorrow Color Schemes",
