@@ -19,4 +19,5 @@
 	"default_line_ending": "unix",
 	"show_encoding": true,
 	"show_line_endings": true,
+	"draw_minimap_border": true,
 }

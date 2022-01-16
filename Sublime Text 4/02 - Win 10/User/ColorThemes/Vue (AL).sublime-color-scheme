@@ -1,0 +1,202 @@
+// Documentation at https://www.sublimetext.com/docs/color_schemes.html
+{
+	"name": "Vue AL",
+
+	"variables":
+	{
+		"white":"#f0f0f0",
+		"orange":"#f08d49",
+		"orange-light":"#f8c555",
+		"green":"#7ec699",
+		"cyan":"#67cdcc",
+		"purple":"#cc99cd",
+		"pink":"#e2777a"
+	},
+	"globals":
+	{
+		"foreground": "#f0f0f0",
+		"background": "#272822",
+		"caret": "white",
+		"invisible": "#3B3A32",
+		"line_highlight": "#3E3D32",
+		"selection": "#49483E",
+		"findHighlight":"#FFE792",
+		"findHighlightForeground":"#000000",
+		"selection_border":"#909090",
+		"activeGuide":"#9D550FB0",
+		"brackets_foreground":"#F8F8F2A5",
+		"brackets_options":"underline",
+		"bracket_contents_foreground":"#F8F8F2A5",
+		"bracket_contents_options":"underline",
+		"tags_options":"stippled_underline",
+	},
+	"rules":
+	[
+		{
+			"name": "Comment",
+			"scope": "comment",
+			"foreground": "#888888"
+		},
+		{
+			"name": "Operators",
+			"scope": "keyword.operator",
+			"foreground": "var(cyan)"
+		},
+		{
+			"name": "String",
+			"scope": "string",
+			"foreground": "var(green)"
+		},
+		{
+			"name": "Number",
+			"scope": "constant.numeric",
+			"foreground": "var(orange)"
+		},
+		{
+			"name": "Built-in constant",
+			"scope": "constant.language",
+			"foreground": "var(white)"
+		},
+		{
+			"name": "User-defined constant",
+			"scope": "constant.character, constant.other",
+			"foreground": "var(orange)"
+		},
+		{
+			"name": "Variable",
+			"scope": "variable",
+			"foreground": "var(white)"
+		},
+		{
+			"name": "this.self",
+			"scope": "variable.language",
+			"foreground": "var(purple)"
+		},
+		{
+			"name": "Keyword",
+			"scope": "keyword",
+			"foreground": "var(purple)"
+		},
+		{
+			"name": "Storage",
+			"scope": "storage",
+			"foreground": "var(purple)"
+		},
+		{
+			"name": "Storage type",
+			"scope": "storage.type",
+			"foreground": "var(purple)"
+		},
+		{
+			"name": "Class name",
+			"scope": "entity.name.class",
+			"foreground": "var(orange-light)"
+		},
+		{
+			"name": "Inherited class",
+			"scope": "entity.other.inherited-class",
+			"foreground": "var(purple)"
+		},
+		{
+			"name": "Function name",
+			"scope": "entity.name.function",
+			"foreground": "var(orange)"
+		},
+		{
+			"name": "Function call",
+			"scope": "variable.function, variable.annotation",
+			"foreground": "var(orange)"
+		},
+		{
+			"name": "Function argument",
+			"scope": "variable.parameter",
+			"foreground": "var(white)"
+		},
+		{
+			"name": "Tag name",
+			"scope": "entity.name.tag",
+			"foreground": "var(pink)"
+		},
+		{
+			"name": "Tag attribute",
+			"scope": "entity.other.attribute-name",
+			"foreground": "var(pink)"
+		},
+		{
+			"name": "Library function",
+			"scope": "support.function",
+			"foreground": "var(orange)"
+		},
+		{
+			"name": "Library constant",
+			"scope": "support.constant",
+			"foreground": "var(white)"
+		},
+		{
+			"name": "Library class/type",
+			"scope": "support.type, support.class",
+			"foreground": "var(white)"
+		},
+		{
+			"name": "Library variable",
+			"scope": "support.other.variable",
+			"foreground": "var(orange)"
+		},
+		{
+			"name": "Invalid",
+			"scope": "invalid",
+			"foreground": "var(orange)"
+		},
+		{
+			"name": "Invalid deprecated",
+			"scope": "invalid.deprecated",
+			"foreground": "var(white)",
+			"background":"#AE81FF"
+		},
+		{
+			"name": "JSON String",
+			"scope": "meta.structure.dictionary.json string.quoted.double.json",
+			"foreground": "var(orange)"
+		},
+		{
+			"name": "diff.header",
+			"scope": "meta.diff, meta.diff.header",
+			"foreground": "#75715E"
+		},
+		{
+			"name": "diff.deleted",
+			"scope": "markup.deleted",
+			"foreground": "#fd971f"
+		},
+		{
+			"name": "diff.inserted",
+			"scope": "markup.inserted",
+			"foreground": "#A6E22E"
+		},
+		{
+			"name": "diff.changed",
+			"scope": "markup.changed",
+			"foreground": "#E6DB74"
+		},
+		{
+			"name": "diff.deleted/type",
+			"scope": "markup.deleted",
+			"foreground": "#fd971f"
+		},
+		{
+			"name": "diff.deleted/type",
+			"scope": "markup.deleted",
+			"foreground": "#fd971f"
+		},
+		{
+			"name": "diff.deleted/type",
+			"scope": "markup.deleted",
+			"foreground": "#fd971f"
+		},
+		{
+			"name": "diff.deleted/type",
+			"scope": "markup.deleted",
+			"foreground": "#fd971f"
+		},
+	]
+}
