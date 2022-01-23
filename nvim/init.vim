@@ -51,8 +51,8 @@ set guifont=Consolas:h15
 
 colorscheme gruvbox
 set background=dark
-
 color gruvbox
+
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
 
@@ -71,7 +71,6 @@ map <C-p> :CtrlP
 
 imap <C-BS> <Esc><S-Left>ce
 imap <C-Del> <Esc>lce
-imap <A-BS> <Esc>ui
 
 " Resizing
 map <S-A-Left> :vertical resize -5<CR>
