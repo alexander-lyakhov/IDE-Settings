@@ -10,3 +10,5 @@
 		ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
 
 - Create 'plugins' folder inside 'Neovim' directory
+
+- Прописать в системных переменных в параметре 'path' путь к бинарникам Vim'а -> "D:\Program Files\Neovim\bin\"

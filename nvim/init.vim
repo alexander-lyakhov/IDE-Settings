@@ -11,7 +11,9 @@ Plug 'https://github.com/terryma/vim-multiple-cursors'
 "Plug 'https://github.com/preservim/tagbar'
 "Plug 'https://github.com/neoclide/coc.nvim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'kien/ctrlp.vim'
 
 call plug#end()
 
@@ -58,11 +60,18 @@ hi CursorLine term=bold cterm=bold guibg=Grey40
 " Mapping
 "
 map <A-0> :NERDTreeToggle <CR>
+map <A-kPlus> :NERDTreeToggle <CR>
 map <F2> :w <CR>
 map <A-F3> :q! <CR>
 "map <F8> :TagbarToggle<CR>
 map <A-x> :qa!<CR>
 map <A-d> :noh<CR>
+
+map <C-p> :CtrlP
+
+imap <C-BS> <Esc><S-Left>ce
+imap <C-Del> <Esc>lce
+imap <A-BS> <Esc>ui
 
 " Resizing
 map <S-A-Left> :vertical resize -5<CR>
