@@ -35,12 +35,16 @@ call plug#end()
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'gitbranch#name'
       \ },
       \ }
+
+let g:lightline.component = {
+    \ 'lineinfo': '%3l:%-2c/ %L'
+    \ }
 
 "colorscheme gruvbox-material
 "set background=dark
