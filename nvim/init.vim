@@ -11,6 +11,7 @@ Plug 'scrooloose/nerdtree', { 'on':	'NERDTreeToggle' }
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'https://github.com/ap/vim-css-color'
 Plug 'https://github.com/tpope/vim-commentary'
+"Plug 'preservim/nerdcommenter'
 "Plug 'https://github.com/tc50cal/vim-terminal'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 "Plug 'https://github.com/preservim/tagbar'
@@ -21,6 +22,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'kien/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
+"Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
 
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
@@ -42,9 +45,20 @@ let g:lightline = {
       \ },
       \ }
 
+" Display total lines number in lightline bar
 let g:lightline.component = {
     \ 'lineinfo': '%3l:%-2c/ %L'
     \ }
+
+" Ag pluging configuration
+let g:ag_working_path_mode="r"
+let g:ag_highlight=1
+let g:ag_format="%f:%l:%m"
+
+"let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+"nmap <leader>a <Esc>:Ag!<Space>
+ nnoremap <A-/> <Esc>:Ag!<Space>
+ nnoremap <A-F7> <Esc>:Ag!<Space>
 
 "colorscheme gruvbox-material
 "set background=dark
@@ -92,10 +106,16 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 " Mapping
 "
 nnoremap <A-0> :NERDTreeToggle <CR>
+nnoremap <A-o> :NERDTreeToggle <CR>
 nnoremap <F2> :w <CR>
-nnoremap <A-F3> :q! <CR>
+nnoremap <A-F3> :q <CR>
 nnoremap <A-x> :qa!<CR>
 nnoremap <BS> X
+
+" Switching between buffers (opened files in the same tab)
+set wildchar=<Tab> wildmenu wildmode=full
+set wildcharm=<C-Z>
+nnoremap <F12> :b <C-Z>
 
 " Search files in project
 nnoremap <C-p> :CtrlP
@@ -103,9 +123,11 @@ nnoremap <C-p> :CtrlP
 " Enter insert mode
 nnoremap s i
 
-" Ctrl-BS / Ctrl-Del in insert mode
-imap <C-BS> <Esc>xcb
-imap <C-Del> <Esc>lce
+" Ctrl-BS / Ctrl-Del
+nnoremap <C-BS> db
+nnoremap <C-Del> diw
+inoremap <C-BS> <Esc>xcb
+inoremap <C-Del> <Esc>lce
 
 " Undo
 nnoremap <A-BS> <Esc>u
@@ -141,8 +163,8 @@ map <A-8> :tabn 8<CR>
 map <A-9> :tabn 9<CR>
 
 " Expand / Collapse window
-map <A-w> :winc _ <bar> winc \|<CR>
-map <A-=> :winc =<CR>
+"map <A-w> :winc _ <bar> winc \|<CR>
+"map <A-=> :winc =<CR>
 
 " Move cursor to the top/bottom of the screen
 "map <A-l> <S-l>
@@ -168,14 +190,17 @@ nnoremap <A-S-d> yyp
 xnoremap <A-S-d> mm y 'm p
 
 " Selection
+inoremap <S-Up> <Esc><S-V>
+inoremap <S-Down> <Esc><S-V>
 nnoremap <S-Up> <S-V>
 nnoremap <S-Down> <S-V>
 
 xnoremap <S-Up> <Up>
 xnoremap <S-Down> <Down>
 
-xnoremap <C-Insert> mm y 'm
-xnoremap <Enter> mm y 'm
+" Indent blocks
+xnoremap < <gv
+xnoremap > >gv
 
 " Copy-paste
 nnoremap <C-c> yiw
@@ -186,19 +211,23 @@ nnoremap <S-C-Insert> yy
 nnoremap <S-Insert> p
 nnoremap <A-Insert> <C-v>
 
-nnoremap <A-/> :noh<CR>
+xnoremap <C-Insert> mm y 'm
+xnoremap <Enter> mm y 'm
+
+nnoremap <C-a> ggVG
+
+"nnoremap <A-/> :noh<CR>
 nnoremap <A-d> :noh<CR>
 
+map <A-w> :call ToggleExpand()<CR>
 
-"map <A-w> :call ToggleExpand()<CR>
-
-"let $is_expanded=0
-"function ToggleExpand()
-"if $is_expanded==0
-"	:exe "winc _ | winc \|"
-"	let $is_expanded=1
-"else
-"	:exe "winc ="
-"	let $is_expanded=0
-"endif
-"endfunction
+let $is_expanded=0
+function ToggleExpand()
+if $is_expanded==0
+	:exe "winc _ | winc \|"
+	let $is_expanded=1
+else
+	:exe "winc ="
+	let $is_expanded=0
+endif
+endfunction

@@ -12,3 +12,6 @@
 - Create 'plugins' folder inside 'Neovim' directory
 
 - Прописать в системных переменных в параметре 'path' путь к бинарникам Vim'а -> "D:\Program Files\Neovim\bin\"
+
+- Скачать и проинастллить файл ag.exe (Silver Searcher) с этой страницы (Нужен для работы плагина Ag.vim):
+	https://github.com/JFLarvoire/the_silver_searcher/releases
