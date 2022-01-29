@@ -36,24 +36,24 @@ call plug#end()
 " Display gitbranch name in lightline bar
 "
 let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
-      \ },
-      \ }
+	  \ 'active': {
+	  \   'left': [ [ 'mode', 'paste' ],
+	  \			 [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
+	  \ },
+	  \ 'component_function': {
+	  \   'gitbranch': 'gitbranch#name'
+	  \ },
+	  \ }
 
 " Display total lines number in lightline bar
 let g:lightline.component = {
-    \ 'lineinfo': '%3l:%-2c/ %L'
-    \ }
+	\ 'lineinfo': '%3l:%-2c/ %L'
+	\ }
 
 " Ag pluging configuration
 let g:ag_working_path_mode="r"
-let g:ag_highlight=1
-let g:ag_format="%f:%l:%m"
+"let g:ag_highlight=1
+"let g:ag_format="%f:%l:%m"
 
 "let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 "nmap <leader>a <Esc>:Ag!<Space>
@@ -105,62 +105,62 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 "
 " Mapping
 "
-nnoremap <A-0> :NERDTreeToggle <CR>
-nnoremap <A-o> :NERDTreeToggle <CR>
-nnoremap <F2> :w <CR>
-nnoremap <A-F3> :q <CR>
-nnoremap <A-x> :qa!<CR>
-nnoremap <BS> X
+	nnoremap <A-0> :NERDTreeToggle <CR>
+	nnoremap <A-o> :NERDTreeToggle <CR>
+	nnoremap <F2> :w <CR>
+	nnoremap <A-F3> :q <CR>
+	nnoremap <A-x> :qa!<CR>
+	nnoremap <BS> X
 
 " Switching between buffers (opened files in the same tab)
-set wildchar=<Tab> wildmenu wildmode=full
-set wildcharm=<C-Z>
-nnoremap <F12> :b <C-Z>
+	set wildchar=<Tab> wildmenu wildmode=full
+	set wildcharm=<C-Z>
+	nnoremap <F12> :b <C-Z>
 
 " Search files in project
-nnoremap <C-p> :CtrlP
+	nnoremap <C-p> :CtrlP
 
 " Enter insert mode
-nnoremap s i
+	nnoremap s i
 
 " Ctrl-BS / Ctrl-Del
-nnoremap <C-BS> db
-nnoremap <C-Del> diw
-inoremap <C-BS> <Esc>xcb
-inoremap <C-Del> <Esc>lce
+	nnoremap <C-BS> db
+	nnoremap <C-Del> diw
+	inoremap <C-BS> <Esc>xcb
+	inoremap <C-Del> <Esc>lce
 
 " Undo
-nnoremap <A-BS> <Esc>u
-inoremap <A-BS> <C-O>u<Esc>la
+	nnoremap <A-BS> <Esc>u
+	inoremap <A-BS> <C-O>u<Esc>la
 
 " Resizing
-nnoremap <S-A-Left> :vertical resize -5<CR>
-nnoremap <S-A-Right> :vertical resize +5<CR>
-nnoremap <S-A-Up> :resize +5<CR>
-nnoremap <S-A-Down> :resize -5<CR>
+	nnoremap <S-A-Left> :vertical resize -5<CR>
+	nnoremap <S-A-Right> :vertical resize +5<CR>
+	nnoremap <S-A-Up> :resize +5<CR>
+	nnoremap <S-A-Down> :resize -5<CR>
 
 " Navigatin between windows
-map <A-h> :winc h<CR>
-map <A-l> :winc l<CR>
-map <A-Left> :winc h<CR>
-map <A-Right> :winc l<CR>
-map <A-Up> :winc k<CR>
-map <A-Down> :winc j<CR>
+	map <A-h> :winc h<CR>
+	map <A-l> :winc l<CR>
+	map <A-Left> :winc h<CR>
+	map <A-Right> :winc l<CR>
+	map <A-Up> :winc k<CR>
+	map <A-Down> :winc j<CR>
 
 " Split
-map <A-s> :winc s<CR>
-map <A-v> :winc v<CR>
+	map <A-s> :winc s<CR>
+	map <A-v> :winc v<CR>
 
 " Switching between tabs
-map <A-1> :tabn 1<CR>
-map <A-2> :tabn 2<CR>
-map <A-3> :tabn 3<CR>
-map <A-4> :tabn 4<CR>
-map <A-5> :tabn 5<CR>
-map <A-6> :tabn 6<CR>
-map <A-7> :tabn 7<CR>
-map <A-8> :tabn 8<CR>
-map <A-9> :tabn 9<CR>
+	map <A-1> :tabn 1<CR>
+	map <A-2> :tabn 2<CR>
+	map <A-3> :tabn 3<CR>
+	map <A-4> :tabn 4<CR>
+	map <A-5> :tabn 5<CR>
+	map <A-6> :tabn 6<CR>
+	map <A-7> :tabn 7<CR>
+	map <A-8> :tabn 8<CR>
+	map <A-9> :tabn 9<CR>
 
 " Expand / Collapse window
 "map <A-w> :winc _ <bar> winc \|<CR>
@@ -171,55 +171,67 @@ map <A-9> :tabn 9<CR>
 "map <A-h> <S-h>
 
 " Scroll screen relatevely cursor line
-nnoremap <A-k> <C-Y>
-nnoremap <A-j> <C-E>
-nnoremap <C-Up> <C-Y>k
-nnoremap <C-Down> <C-E>j
+	nnoremap <A-k> <C-Y>
+	nnoremap <A-j> <C-E>
+	nnoremap <C-Up> <C-Y>k
+	nnoremap <C-Down> <C-E>j
 
 " Preventing default behavior of S-Up/S-Down keys in visual mode
 "map <S-Up> k
 "map <S-Down> j
 
 " Insert new empty line above cursor
-nnoremap <S-Enter> :put!=''<CR>
+	nnoremap <S-Enter> :put!=''<CR>
 
 " Duplicate line
-nnoremap <A-S-d> yyp
+	nnoremap <A-S-d> yyp
 
 " Duplicate several lines
-xnoremap <A-S-d> mm y 'm p
+	xnoremap <A-S-d> mm y 'm p
 
 " Selection
-inoremap <S-Up> <Esc><S-V>
-inoremap <S-Down> <Esc><S-V>
-nnoremap <S-Up> <S-V>
-nnoremap <S-Down> <S-V>
+	inoremap <S-Up> <Esc><S-V>
+	inoremap <S-Down> <Esc><S-V>
 
-xnoremap <S-Up> <Up>
-xnoremap <S-Down> <Down>
+	nnoremap <S-Up> <S-V>
+	nnoremap <S-Down> <S-V>
+	nnoremap <S-Left> v
+	nnoremap <S-Right> v
+	nnoremap <C-S-Left> v<C-S-Left>
+	nnoremap <C-S-Right> v<C-S-Right>
+
+	inoremap <S-Left> <Esc>v
+	inoremap <S-Right> <Esc>v
+	inoremap <C-S-Left> <Esc>v<C-S-Left>
+	inoremap <C-S-Right> <Esc>v<C-S-Right>
+
+	xnoremap <S-Up> <Up>
+	xnoremap <S-Down> <Down>
+	xnoremap <S-Left> <Left>
+	xnoremap <S-Right> <Right>
 
 " Indent blocks
-xnoremap < <gv
-xnoremap > >gv
+	xnoremap < <gv
+	xnoremap > >gv
 
 " Copy-paste
-nnoremap <C-c> yiw
-nnoremap <A-kPlus> yiw
-nnoremap <C-Insert> yiw
-nnoremap <A-i> yiw
-nnoremap <S-C-Insert> yy
-nnoremap <S-Insert> p
-nnoremap <A-Insert> <C-v>
+	nnoremap <C-c> yiw
+	nnoremap <A-kPlus> yiw
+	nnoremap <C-Insert> yiw
+	nnoremap <A-i> yiw
+	nnoremap <S-C-Insert> yy
+	nnoremap <S-Insert> p
+	nnoremap <A-Insert> <C-v>
 
-xnoremap <C-Insert> mm y 'm
-xnoremap <Enter> mm y 'm
+	xnoremap <C-Insert> mm y 'm
+	xnoremap <Enter> mm y 'm
 
-nnoremap <C-a> ggVG
+	nnoremap <C-a> ggVG
 
 "nnoremap <A-/> :noh<CR>
-nnoremap <A-d> :noh<CR>
+	nnoremap <A-d> :noh<CR>
 
-map <A-w> :call ToggleExpand()<CR>
+	map <A-w> :call ToggleExpand()<CR>
 
 let $is_expanded=0
 function ToggleExpand()
