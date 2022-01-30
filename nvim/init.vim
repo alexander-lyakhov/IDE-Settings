@@ -12,23 +12,25 @@ Plug 'scrooloose/nerdtree', { 'on':	'NERDTreeToggle' }
 Plug 'https://github.com/ap/vim-css-color'
 Plug 'https://github.com/tpope/vim-commentary'
 "Plug 'preservim/nerdcommenter'
+
 "Plug 'https://github.com/tc50cal/vim-terminal'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 "Plug 'https://github.com/preservim/tagbar'
 "Plug 'https://github.com/neoclide/coc.nvim'
 Plug 'jiangmiao/auto-pairs'
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'kien/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 "Plug 'mileszs/ack.vim'
-Plug 'rking/ag.vim'
+"Plug 'posva/vim-vue'
 
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'mhartington/oceanic-next'
 Plug 'flazz/vim-colorschemes'
+"Plug 'leafoftree/vim-vue-plugin'
 
 call plug#end()
 
@@ -57,7 +59,7 @@ let g:ag_working_path_mode="r"
 
 "let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 "nmap <leader>a <Esc>:Ag!<Space>
- nnoremap <A-/> <Esc>:Ag!<Space>
+" nnoremap <A-/> <Esc>:Ag!<Space>
  nnoremap <A-F7> <Esc>:Ag!<Space>
 
 "colorscheme gruvbox-material
@@ -231,7 +233,11 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 "nnoremap <A-/> :noh<CR>
 	nnoremap <A-d> :noh<CR>
 
-	map <A-w> :call ToggleExpand()<CR>
+" Comments
+	nmap <C-/> gcc
+	xmap <C-/> gc gv <Esc>
+
+map <A-w> :call ToggleExpand()<CR>
 
 let $is_expanded=0
 function ToggleExpand()
