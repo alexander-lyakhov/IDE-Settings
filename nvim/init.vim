@@ -24,6 +24,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 "Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 "Plug 'posva/vim-vue'
 "Plug 'leafoftree/vim-vue-plugin'
@@ -54,15 +55,13 @@ let g:lightline.component = {
 	\ 'lineinfo': '%3l:%-2c/ %L'
 	\ }
 
+"
 " Ag pluging configuration
+"
 let g:ag_working_path_mode="r"
 "let g:ag_highlight=1
 "let g:ag_format="%f:%l:%m"
-
-"let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-"nmap <leader>a <Esc>:Ag!<Space>
-" nnoremap <A-/> <Esc>:Ag!<Space>
- nnoremap <A-F7> <Esc>:Ag!<Space>
+nnoremap <A-F7> <Esc>:Ag!<Space>
 
 "colorscheme gruvbox-material
 "set background=dark
@@ -78,6 +77,9 @@ set encoding=UTF-8
 
 set number
 set expandtab
+
+" Use system clipboard
+	set clipboard+=unnamedplus
 
 set smarttab
 set autoindent
@@ -96,8 +98,8 @@ set nowrap
 "set so=1000
 
 " Keep cursor always on the same column while scrolling
-set virtualedit=all
-set nostartofline
+	set virtualedit=all
+	set nostartofline
 
 set completeopt-=preview
 
@@ -105,6 +107,16 @@ set guifont=Consolas:h15
 
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey25
+
+" Config for CtrlP plugin
+	let g:ctrlp_show_hidden = 1
+	set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\node_modules\\*
+
+" Set whitespace characters
+	:set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:.
+" Togglr whitespace characters
+	nnoremap <S-Space> :set list!<CR>
+
 
 "
 " Mapping
@@ -203,11 +215,15 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 	nnoremap <S-Right> v
 	nnoremap <C-S-Left> v<C-S-Left>
 	nnoremap <C-S-Right> v<C-S-Right>
+	nnoremap <S-kHome> v<kHome>
+	nnoremap <S-kEnd> v<kEnd>
 
 	inoremap <S-Left> <Esc>v
 	inoremap <S-Right> <Esc>v
 	inoremap <C-S-Left> <Esc>v<C-S-Left>
 	inoremap <C-S-Right> <Esc>v<C-S-Right>
+	inoremap <S-kHome> <Esc>v<kHome>
+	inoremap <S-kEnd> <Esc>v<End>
 
 	xnoremap <S-Up> <Up>
 	xnoremap <S-Down> <Down>
@@ -243,11 +259,11 @@ map <A-w> :call ToggleExpand()<CR>
 
 let $is_expanded=0
 function ToggleExpand()
-if $is_expanded==0
-	:exe "winc _ | winc \|"
-	let $is_expanded=1
-else
-	:exe "winc ="
-	let $is_expanded=0
-endif
+	if $is_expanded==0
+		:exe "winc _ | winc \|"
+		let $is_expanded=1
+	else
+		:exe "winc ="
+		let $is_expanded=0
+	endif
 endfunction
