@@ -19,7 +19,7 @@ Plug 'https://github.com/terryma/vim-multiple-cursors'
 "Plug 'https://github.com/neoclide/coc.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+"Plug 'airblade/vim-gitgutter'
 Plug 'kien/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
@@ -61,7 +61,6 @@ let g:lightline.component = {
 let g:ag_working_path_mode="r"
 "let g:ag_highlight=1
 "let g:ag_format="%f:%l:%m"
-nnoremap <A-F7> <Esc>:Ag!<Space>
 
 "colorscheme gruvbox-material
 "set background=dark
@@ -113,7 +112,7 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 	set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\node_modules\\*
 
 " Set whitespace characters
-	:set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:.
+	":set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:.
 " Togglr whitespace characters
 	nnoremap <S-Space> :set list!<CR>
 
@@ -123,10 +122,14 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 "
 	nnoremap <A-0> :NERDTreeToggle <CR>
 	nnoremap <A-o> :NERDTreeToggle <CR>
+	nnoremap <A-`> :NERDTreeToggle <CR>
 	nnoremap <F2> :w <CR>
 	nnoremap <A-F3> :q <CR>
 	nnoremap <A-x> :qa!<CR>
 	nnoremap <BS> X
+	nnoremap <Space> i<Space><Esc>
+	nnoremap <C-n> :tabnew<CR>
+	nnoremap <S-F4> :tabnew<CR>
 
 " Switching between buffers (opened files in the same tab)
 	set wildchar=<Tab> wildmenu wildmode=full
@@ -198,6 +201,7 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 
 " Insert new empty line above cursor
 	nnoremap <S-Enter> :put!=''<CR>
+	nnoremap <C-Enter> :put=''<CR>
 
 " Duplicate line
 	nnoremap <A-S-d> yyp
@@ -211,17 +215,17 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 
 	nnoremap <S-Up> <S-V>
 	nnoremap <S-Down> <S-V>
-	nnoremap <S-Left> v
-	nnoremap <S-Right> v
-	nnoremap <C-S-Left> v<C-S-Left>
-	nnoremap <C-S-Right> v<C-S-Right>
+	nnoremap <S-Left> vh
+	nnoremap <S-Right> vl
+	nnoremap <C-S-Left> vb
+	nnoremap <C-S-Right> ve
 	nnoremap <S-kHome> v<kHome>
 	nnoremap <S-kEnd> v<kEnd>
 
 	inoremap <S-Left> <Esc>v
-	inoremap <S-Right> <Esc>v
-	inoremap <C-S-Left> <Esc>v<C-S-Left>
-	inoremap <C-S-Right> <Esc>v<C-S-Right>
+	inoremap <S-Right> <Esc>lv
+	inoremap <C-S-Left> <Esc>vb
+	inoremap <C-S-Right> <Esc>lve
 	inoremap <S-kHome> <Esc>v<kHome>
 	inoremap <S-kEnd> <Esc>v<End>
 
@@ -234,6 +238,10 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 	xnoremap < <gv
 	xnoremap > >gv
 
+" Move selected line up / down
+	xnoremap <C-S-Up> xk<S-p><S-v>
+	xnoremap <C-S-Down> xp<S-v>
+
 " Copy-paste
 	nnoremap <C-c> yiw
 	nnoremap <A-kPlus> yiw
@@ -241,10 +249,11 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 	nnoremap <A-i> yiw
 	nnoremap <S-C-Insert> yy
 	nnoremap <S-Insert> p
+	inoremap <S-Insert> <Esc>pa
 	nnoremap <A-Insert> <C-v>
 
-	xnoremap <C-Insert> mm y 'm
-	xnoremap <Enter> mm y 'm
+	xnoremap <C-Insert> y
+	xnoremap <Enter> y
 
 	nnoremap <C-a> ggVG
 
@@ -254,6 +263,12 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 " Comments
 	nmap <C-/> gcc
 	xmap <C-/> gc gv <Esc>
+
+" Search and replace
+	nnoremap <F7> q/i\c
+	nnoremap <A-F7> q:iAg!
+	nnoremap <C-F7> yiwq:a%s/<Esc>pa//g<Esc>hi
+
 
 map <A-w> :call ToggleExpand()<CR>
 
