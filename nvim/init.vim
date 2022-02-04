@@ -59,7 +59,7 @@ let g:lightline.component = {
 " Ag pluging configuration
 "
 let g:ag_working_path_mode="r"
-"let g:ag_highlight=1
+let g:ag_highlight=0
 "let g:ag_format="%f:%l:%m"
 
 "colorscheme gruvbox-material
@@ -103,6 +103,7 @@ set nowrap
 set completeopt-=preview
 
 set guifont=Consolas:h15
+"set guifont=Source\ Code\ Pro:h15
 
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey25
@@ -267,7 +268,9 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 " Search and replace
 	nnoremap <F7> q/i\c
 	nnoremap <A-F7> q:iAg!
-	nnoremap <C-F7> yiwq:a%s/<Esc>pa//g<Esc>hi
+	nnoremap <A-/> :Ag!<Space>
+	nnoremap <Leader>f :AgFile!<Space>
+	nnoremap <C-F7> yiwq:a%s/\<<Esc>pa\>//g<Esc>hi
 
 
 map <A-w> :call ToggleExpand()<CR>
