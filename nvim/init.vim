@@ -16,7 +16,7 @@ Plug 'https://github.com/tpope/vim-commentary'
 "Plug 'https://github.com/tc50cal/vim-terminal'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 "Plug 'https://github.com/preservim/tagbar'
-"Plug 'https://github.com/neoclide/coc.nvim'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 "Plug 'airblade/vim-gitgutter'
@@ -103,6 +103,7 @@ set nowrap
 set completeopt-=preview
 
 set guifont=Consolas:h15
+"set guifont=Roboto\ Mono:h14
 "set guifont=Source\ Code\ Pro:h15
 
 set cursorline
@@ -128,9 +129,12 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 	nnoremap <A-F3> :q <CR>
 	nnoremap <A-x> :qa!<CR>
 	nnoremap <BS> X
-	nnoremap <Space> i<Space><Esc>
+	nnoremap <Space> i<Space><Esc>l
 	nnoremap <C-n> :tabnew<CR>
 	nnoremap <S-F4> :tabnew<CR>
+
+	nnoremap <C-]> %
+	nnoremap <C-[> %
 
 " Switching between buffers (opened files in the same tab)
 	set wildchar=<Tab> wildmenu wildmode=full
@@ -208,7 +212,7 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 	nnoremap <A-S-d> yyp
 
 " Duplicate several lines
-	xnoremap <A-S-d> mm y 'm p
+	xnoremap <A-S-d> m0 y '0 p
 
 " Selection
 	inoremap <S-Up> <Esc><S-V>
@@ -272,7 +276,6 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 	nnoremap <Leader>f :AgFile!<Space>
 	nnoremap <C-F7> yiwq:a%s/\<<Esc>pa\>//g<Esc>hi
 
-
 map <A-w> :call ToggleExpand()<CR>
 
 let $is_expanded=0
@@ -285,3 +288,4 @@ function ToggleExpand()
 		let $is_expanded=0
 	endif
 endfunction
+
