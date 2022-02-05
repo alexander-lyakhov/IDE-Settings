@@ -28,6 +28,7 @@ Plug 'rking/ag.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 "Plug 'posva/vim-vue'
 "Plug 'leafoftree/vim-vue-plugin'
+Plug '/vim-scripts/AutoComplPop'
 
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
@@ -84,7 +85,7 @@ set smarttab
 set autoindent
 
 set tabstop=2
-set softtabstop=2
+set softtabstop=4
 set shiftwidth=2
 
 set hlsearch
@@ -289,3 +290,4 @@ function ToggleExpand()
 	endif
 endfunction
 
+nnoremap <kPlus> BvEy q:icolorscheme <Esc>p<CR>
