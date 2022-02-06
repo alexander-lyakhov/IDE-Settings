@@ -17,7 +17,7 @@ Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 "Plug 'https://github.com/preservim/tagbar'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 "Plug 'airblade/vim-gitgutter'
 Plug 'kien/ctrlp.vim'
@@ -88,6 +88,7 @@ set tabstop=2
 set softtabstop=4
 set shiftwidth=2
 
+
 set hlsearch
 set incsearch
 
@@ -116,9 +117,9 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 
 " Set whitespace characters
 	":set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:.
-" Togglr whitespace characters
-	nnoremap <S-Space> :set list!<CR>
 
+" Togglr whitespace characters
+	"nnoremap <S-Space> :set list!<CR>
 
 "
 " Mapping
@@ -127,11 +128,12 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 	nnoremap <A-o> :NERDTreeToggle <CR>
 	nnoremap <A-`> :NERDTreeToggle <CR>
 	nnoremap <F2> :w <CR>
+	inoremap <F2> <Esc>:w<CR>a
 	nnoremap <A-F3> :q <CR>
 	nnoremap <A-x> :qa!<CR>
 	nnoremap <BS> X
 	nnoremap <Space> i<Space><Esc>l
-	nnoremap <C-n> :tabnew<CR>
+	nnoremap <C-t> :tabnew<CR>
 	nnoremap <S-F4> :tabnew<CR>
 
 	nnoremap <C-]> %
@@ -277,7 +279,11 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 	nnoremap <Leader>f :AgFile!<Space>
 	nnoremap <C-F7> yiwq:a%s/\<<Esc>pa\>//g<Esc>hi
 
-map <A-w> :call ToggleExpand()<CR>
+
+"
+" Expand / Collapse active window
+"
+nnoremap <A-w> :call ToggleExpand()<CR>
 
 let $is_expanded=0
 function ToggleExpand()
@@ -290,4 +296,26 @@ function ToggleExpand()
 	endif
 endfunction
 
-nnoremap <kPlus> BvEy q:icolorscheme <Esc>p<CR>
+"
+" Toggle whitespaces on / off
+"
+nnoremap <S-Space> :call ToggleWightspaces()<CR>
+inoremap <S-Space> <Esc>:call ToggleWightspaces()<CR>a
+
+let $is_whitespaces_on=0
+function ToggleWightspaces()
+	if $is_whitespaces_on==0
+		:set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:.
+		let $is_whitespaces_on=1
+	else
+		:set list!
+	endif
+endfunction
+
+
+"nnoremap <kPlus> BvEy q:icolorscheme <Esc>p<CR>j
+
+" Trim trailing spaces when saving file
+	autocmd BufWritePre * :%s/\s\+$//e
+	nnoremap <kEnd> :s/\s\+$//e <CR> <End>
+	inoremap <kEnd> <Esc>:s/\s\+$//e <CR> <End>a
