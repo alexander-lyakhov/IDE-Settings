@@ -7,6 +7,7 @@ call plug#begin('D:\Program Files\Neovim\plugins\')
 " Plugins Section
 "
 Plug 'scrooloose/nerdtree', { 'on':	'NERDTreeToggle' }
+Plug 'ryanoasis/vim-devicons'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'https://github.com/ap/vim-css-color'
@@ -57,11 +58,21 @@ let g:lightline.component = {
 	\ }
 
 "
+" Autocompletion
+"
+	let g:acp_behaviorKeywordLength = 2
+	let g:acp_behaviorFileLength = 2
+
+	set completeopt=menuone,longest
+	set shortmess+=c
+
+"
 " Ag pluging configuration
 "
-let g:ag_working_path_mode="r"
-let g:ag_highlight=0
-"let g:ag_format="%f:%l:%m"
+	let g:ag_working_path_mode="r"
+	let g:ag_highlight=0
+	"let g:ag_format="%f:%l:%m"
+
 
 "colorscheme gruvbox-material
 "set background=dark
@@ -102,8 +113,6 @@ set nowrap
 	set virtualedit=all
 	set nostartofline
 
-set completeopt-=preview
-
 set guifont=Consolas:h15
 "set guifont=Roboto\ Mono:h14
 "set guifont=Source\ Code\ Pro:h15
@@ -135,6 +144,7 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 	nnoremap <Space> i<Space><Esc>l
 	nnoremap <C-t> :tabnew<CR>
 	nnoremap <S-F4> :tabnew<CR>
+	"nnoremap <F8> :TagbarToggle<CR>
 
 	nnoremap <C-]> %
 	nnoremap <C-[> %
@@ -313,9 +323,8 @@ function ToggleWightspaces()
 endfunction
 
 
-"nnoremap <kPlus> BvEy q:icolorscheme <Esc>p<CR>j
+nnoremap <kPlus> BvEy q:icolorscheme <Esc>p<CR>j
 
 " Trim trailing spaces when saving file
-	autocmd BufWritePre * :%s/\s\+$//e
 	nnoremap <kEnd> :s/\s\+$//e <CR> <End>
 	inoremap <kEnd> <Esc>:s/\s\+$//e <CR> <End>a
