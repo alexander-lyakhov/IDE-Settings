@@ -7,6 +7,7 @@ call plug#begin('D:\Program Files\Neovim\plugins\')
 " Plugins Section
 "
 Plug 'scrooloose/nerdtree', { 'on':	'NERDTreeToggle' }
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
@@ -17,7 +18,6 @@ Plug 'https://github.com/tpope/vim-commentary'
 "Plug 'https://github.com/tc50cal/vim-terminal'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 "Plug 'https://github.com/preservim/tagbar'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 "Plug 'airblade/vim-gitgutter'
@@ -30,9 +30,9 @@ Plug 'othree/javascript-libraries-syntax.vim'
 "Plug 'posva/vim-vue'
 "Plug 'leafoftree/vim-vue-plugin'
 Plug '/vim-scripts/AutoComplPop'
+Plug 'mattn/emmet-vim'
 
 Plug 'morhetz/gruvbox'
-Plug 'sainnhe/gruvbox-material'
 Plug 'mhartington/oceanic-next'
 Plug 'flazz/vim-colorschemes'
 "Plug 'leafoftree/vim-vue-plugin'
@@ -57,33 +57,48 @@ let g:lightline.component = {
 	\ 'lineinfo': '%3l:%-2c/ %L'
 	\ }
 
+
 "
 " Autocompletion
 "
-	let g:acp_behaviorKeywordLength = 2
-	let g:acp_behaviorFileLength = 2
+let g:acp_behaviorKeywordLength = 2
+let g:acp_behaviorFileLength = 2
 
-	set completeopt=menuone,longest
-	set shortmess+=c
+set completeopt=menuone,longest
+set shortmess+=c
+
 
 "
 " Ag pluging configuration
 "
-	let g:ag_working_path_mode="r"
-	let g:ag_highlight=0
-	"let g:ag_format="%f:%l:%m"
+let g:ag_working_path_mode="r"
+let g:ag_highlight=0
+"let g:ag_format="%f:%l:%m"
 
 
-"colorscheme gruvbox-material
-"set background=dark
-"color gruvbox-material
+"
+" Emmet default expand shorcut
+"
+let g:user_emmet_expandabbr_key = '<A-e>'
 
+
+"
+" Colorscheme
+"
 colorscheme OceanicNext
 set background=dark
 color OceanicNext
 
+
+"
+" Airline
+"
 "let g:airline_theme='minimalist'
 
+
+"
+" Basic settings
+"
 set encoding=UTF-8
 
 set number
@@ -113,22 +128,19 @@ set nowrap
 	set virtualedit=all
 	set nostartofline
 
-set guifont=Consolas:h15
-"set guifont=Roboto\ Mono:h14
-"set guifont=Source\ Code\ Pro:h15
+" Fonts
+	"set guifont=Consolas:h15
+	set guifont=Hack:h15
+	"set guifont=B612\ Mono:h13
+	"set guifont=Roboto\ Mono:h14
 
-set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey25
+" Highlights current line
+	set cursorline
+	hi CursorLine term=bold cterm=bold guibg=Grey25
 
 " Config for CtrlP plugin
 	let g:ctrlp_show_hidden = 1
 	set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\node_modules\\*
-
-" Set whitespace characters
-	":set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:.
-
-" Togglr whitespace characters
-	"nnoremap <S-Space> :set list!<CR>
 
 "
 " Mapping
@@ -143,6 +155,7 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 	nnoremap <BS> X
 	nnoremap <Space> i<Space><Esc>l
 	nnoremap <C-t> :tabnew<CR>
+	nnoremap <C-n> :tabnew<CR>
 	nnoremap <S-F4> :tabnew<CR>
 	"nnoremap <F8> :TagbarToggle<CR>
 
@@ -159,10 +172,11 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 
 " Enter insert mode
 	nnoremap s i
+	nnoremap <F4> i
 
 " Ctrl-BS / Ctrl-Del
 	nnoremap <C-BS> db
-	nnoremap <C-Del> diw
+	nnoremap <C-Del> de
 	inoremap <C-BS> <Esc>xcb
 	inoremap <C-Del> <Esc>lce
 
@@ -170,19 +184,23 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 	nnoremap <A-BS> <Esc>u
 	inoremap <A-BS> <C-O>u<Esc>la
 
-" Resizing
-	nnoremap <S-A-Left> :vertical resize -5<CR>
-	nnoremap <S-A-Right> :vertical resize +5<CR>
-	nnoremap <S-A-Up> :resize +5<CR>
-	nnoremap <S-A-Down> :resize -5<CR>
-
 " Navigatin between windows
-	map <A-h> :winc h<CR>
-	map <A-l> :winc l<CR>
-	map <A-Left> :winc h<CR>
-	map <A-Right> :winc l<CR>
-	map <A-Up> :winc k<CR>
-	map <A-Down> :winc j<CR>
+	nnoremap <A-h> :winc h<CR>
+	nnoremap <A-l> :winc l<CR>
+	nnoremap <A-Left> :winc h<CR>
+	nnoremap <A-Right> :winc l<CR>
+	nnoremap <A-S-Up> :winc k<CR>
+	nnoremap <A-S-Down> :winc j<CR>
+
+" Navigatin inside the lines
+	nnoremap <C-Right> w
+	nnoremap <C-Left> b
+
+" Resizing
+	nnoremap <A-S-Left> :vertical resize -5<CR>
+	nnoremap <A-S-Right> :vertical resize +5<CR>
+	nnoremap <A-S-Up> :resize +5<CR>
+	nnoremap <A-S-Down> :resize -5<CR>
 
 " Split
 	map <A-s> :winc s<CR>
@@ -198,14 +216,12 @@ hi CursorLine term=bold cterm=bold guibg=Grey25
 	map <A-7> :tabn 7<CR>
 	map <A-8> :tabn 8<CR>
 	map <A-9> :tabn 9<CR>
+	nnoremap t1 :tabmove -1<CR>
+	nnoremap t2 :tabmove +1<CR>
 
 " Expand / Collapse window
 "map <A-w> :winc _ <bar> winc \|<CR>
 "map <A-=> :winc =<CR>
-
-" Move cursor to the top/bottom of the screen
-"map <A-l> <S-l>
-"map <A-h> <S-h>
 
 " Scroll screen relatevely cursor line
 	nnoremap <A-k> <C-Y>
@@ -326,5 +342,7 @@ endfunction
 nnoremap <kPlus> BvEy q:icolorscheme <Esc>p<CR>j
 
 " Trim trailing spaces when saving file
-	nnoremap <kEnd> :s/\s\+$//e <CR> <End>
-	inoremap <kEnd> <Esc>:s/\s\+$//e <CR> <End>a
+	autocmd BufWritePre * :%s/\s\+$//e
+	"nnoremap <kEnd> :s/\s\+$//e <CR> <End>
+	"inoremap <kEnd> <Esc>:s/\s\+$//e <CR> <End>a
+
