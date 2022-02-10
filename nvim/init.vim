@@ -31,6 +31,8 @@ Plug 'othree/javascript-libraries-syntax.vim'
 "Plug 'leafoftree/vim-vue-plugin'
 Plug '/vim-scripts/AutoComplPop'
 Plug 'mattn/emmet-vim'
+Plug 'gregsexton/MatchTag'
+Plug 'pseewald/vim-anyfold'
 
 Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
@@ -38,6 +40,17 @@ Plug 'flazz/vim-colorschemes'
 "Plug 'leafoftree/vim-vue-plugin'
 
 call plug#end()
+
+
+"
+" Folding settings
+"
+	filetype plugin indent on " required
+	syntax on                 " required
+	autocmd Filetype * AnyFoldActivate
+	set foldlevel=0  " close all folds
+	"let g:anyfold_fold_comments=1
+
 
 "
 " Display gitbranch name in lightline bar
@@ -129,8 +142,8 @@ set nowrap
 	set nostartofline
 
 " Fonts
-	"set guifont=Consolas:h15
-	set guifont=Hack:h15
+	set guifont=Consolas:h15
+	"set guifont=Hack:h15
 	"set guifont=B612\ Mono:h13
 	"set guifont=Roboto\ Mono:h14
 
@@ -189,8 +202,8 @@ set nowrap
 	nnoremap <A-l> :winc l<CR>
 	nnoremap <A-Left> :winc h<CR>
 	nnoremap <A-Right> :winc l<CR>
-	nnoremap <A-S-Up> :winc k<CR>
-	nnoremap <A-S-Down> :winc j<CR>
+	nnoremap <A-Up> :winc k<CR>
+	nnoremap <A-Down> :winc j<CR>
 
 " Navigatin inside the lines
 	nnoremap <C-Right> w
@@ -278,7 +291,7 @@ set nowrap
 
 " Copy-paste
 	nnoremap <C-c> yiw
-	nnoremap <A-kPlus> yiw
+	"nnoremap <A-kPlus> yiw
 	nnoremap <C-Insert> yiw
 	nnoremap <A-i> yiw
 	nnoremap <S-C-Insert> yy
@@ -304,6 +317,14 @@ set nowrap
 	nnoremap <A-/> :Ag!<Space>
 	nnoremap <Leader>f :AgFile!<Space>
 	nnoremap <C-F7> yiwq:a%s/\<<Esc>pa\>//g<Esc>hi
+
+" Folding
+	nnoremap <C-kPlus> zoj
+	nnoremap <S-C-kPlus> zR
+	nnoremap <C-kMinus> zc
+	nnoremap <S-C-kMinus> zMzr
+	nnoremap <C-,> 1za
+	nnoremap <C-.> zO
 
 
 "
@@ -345,4 +366,3 @@ nnoremap <kPlus> BvEy q:icolorscheme <Esc>p<CR>j
 	autocmd BufWritePre * :%s/\s\+$//e
 	"nnoremap <kEnd> :s/\s\+$//e <CR> <End>
 	"inoremap <kEnd> <Esc>:s/\s\+$//e <CR> <End>a
-
