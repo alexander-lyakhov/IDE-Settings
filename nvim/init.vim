@@ -132,6 +132,7 @@ set autoindent
 
 	nnoremap <S-kPlus> :%s/\ \ /\t/g<CR>
 	nnoremap <S-kMinus> :%s/\t/\ \ /g<CR>
+	nnoremap <S-Tab> :%s/\ \ \ \ /\t/g<CR>
 
 
 set hlsearch
