@@ -46,7 +46,7 @@ call plug#end()
 " Folding settings
 "
 	filetype plugin indent on " required
-	syntax on                 " required
+	syntax on				 " required
 	autocmd Filetype * AnyFoldActivate
 	set foldlevel=0  " close all folds
 	"let g:anyfold_fold_comments=1
@@ -123,9 +123,15 @@ set expandtab
 set smarttab
 set autoindent
 
-set tabstop=2
-set softtabstop=4
-set shiftwidth=2
+"
+" Tabs and spaces
+"
+	set tabstop=4
+	set softtabstop=4
+	set shiftwidth=4
+
+	nnoremap <S-kPlus> :%s/\ \ /\t/g<CR>
+	nnoremap <S-kMinus> :%s/\t/\ \ /g<CR>
 
 
 set hlsearch
