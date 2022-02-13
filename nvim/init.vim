@@ -45,10 +45,10 @@ call plug#end()
 "
 " Folding settings
 "
-	filetype plugin indent on " required
-	syntax on				 " required
-	autocmd Filetype * AnyFoldActivate
-	set foldlevel=0  " close all folds
+	"filetype plugin indent on	" required
+	"syntax on					" required
+	"autocmd Filetype * AnyFoldActivate
+	"set foldlevel=8  " close all folds
 	"let g:anyfold_fold_comments=1
 
 
@@ -115,7 +115,9 @@ color OceanicNext
 set encoding=UTF-8
 
 set number
-set expandtab
+"set expandtab
+set autoread
+au CursorHold * checktime
 
 " Use system clipboard
 	set clipboard+=unnamedplus
@@ -130,8 +132,8 @@ set autoindent
 	set softtabstop=4
 	set shiftwidth=4
 
-	nnoremap <S-kPlus> :%s/\ \ /\t/g<CR>
-	nnoremap <S-kMinus> :%s/\t/\ \ /g<CR>
+	nnoremap <S-kPlus> :%s/\ \ /\t/g<CR>gg
+	nnoremap <S-kMinus> :%s/\t/\ \ /g<CR>gg
 	nnoremap <S-Tab> :%s/\ \ \ \ /\t/g<CR>
 
 
@@ -150,6 +152,7 @@ set nowrap
 
 " Fonts
 	set guifont=Consolas:h15
+	"set guifont=Courier\ New:h14
 	"set guifont=Hack:h15
 	"set guifont=B612\ Mono:h13
 	"set guifont=Roboto\ Mono:h14
@@ -330,8 +333,8 @@ set nowrap
 	nnoremap <S-C-kPlus> zR
 	nnoremap <C-kMinus> zc
 	nnoremap <S-C-kMinus> zMzr
-	nnoremap <C-,> 1za
-	nnoremap <C-.> zO
+	nnoremap <A-,> 1za
+	nnoremap <A-.> zO
 
 
 "
@@ -359,7 +362,7 @@ inoremap <S-Space> <Esc>:call ToggleWightspaces()<CR>a
 let $is_whitespaces_on=0
 function ToggleWightspaces()
 	if $is_whitespaces_on==0
-		:set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:.
+		:set listchars=eol:$,tab:>\ ,trail:~,extends:>,precedes:<,space:.
 		let $is_whitespaces_on=1
 	else
 		:set list!
@@ -367,7 +370,7 @@ function ToggleWightspaces()
 endfunction
 
 
-nnoremap <kPlus> BvEy q:icolorscheme <Esc>p<CR>j
+"nnoremap <kPlus> BvEy q:icolorscheme <Esc>p<CR>j
 
 " Trim trailing spaces when saving file
 	autocmd BufWritePre * :%s/\s\+$//e
