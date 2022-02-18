@@ -45,11 +45,12 @@ call plug#end()
 "
 " Folding settings
 "
-	"filetype plugin indent on	" required
-	"syntax on					" required
-	"autocmd Filetype * AnyFoldActivate
-	"set foldlevel=8  " close all folds
+	filetype plugin indent on	" required
+	syntax on					" required
+	autocmd Filetype * AnyFoldActivate
+	set foldlevel=8  " close all folds
 	"let g:anyfold_fold_comments=1
+	g:anyfold_fold_display=0
 
 
 "
@@ -333,6 +334,8 @@ set nowrap
 	nnoremap <S-C-kPlus> zR
 	nnoremap <C-kMinus> zc
 	nnoremap <S-C-kMinus> zMzr
+	nnoremap <C-,> 1za
+	nnoremap <C-.> zO
 	nnoremap <A-,> 1za
 	nnoremap <A-.> zO
 
