@@ -15,3 +15,6 @@
 
 - Скачать и проинастллить файл ag.exe (Silver Searcher) с этой страницы (Нужен для работы плагина Ag.vim):
 	https://github.com/JFLarvoire/the_silver_searcher/releases
+
+- Hack fonts
+	https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack/Regular/complete

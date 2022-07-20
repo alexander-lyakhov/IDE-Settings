@@ -1,5 +1,6 @@
 {
 	"font_size": 14,
+	// "font_face": "Hack",
 	"ignored_packages":
 	[
 		"Vintage",
